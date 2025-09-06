@@ -18,7 +18,7 @@ const TvDetails = () => {
   const { info } = useSelector((state) => state.tv);
 
   const dispatch = useDispatch();
-  console.log(info);
+  // console.log(info);
 
   useEffect(() => {
     dispatch(asyncloadtv(id));
@@ -171,8 +171,9 @@ const TvDetails = () => {
       <div className="w-[100%] flex overflow-y-hidden mb-5 p-5 ">
         {info.detail.seasons.length > 0 ? (
           info.detail.seasons.map((s, i) => (
-            <div className="w-[15vh] mr-[10%]">
+            <div key={i} className="w-[15vh] mr-[10%]">
               <img
+              
                 className="rounded-md shadow-[8px_17px_38px_2px_rgba(0,0,0,0.5)] min-w-[14vw] h-[35vh] object-cover"
                 src={`https://image.tmdb.org/t/p/original/${s.poster_path}`}
                 alt=""
